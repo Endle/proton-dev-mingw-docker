@@ -2,7 +2,7 @@ FROM registry.gitlab.steamos.cloud/steamrt/soldier/sdk
 
 RUN cd /tmp && \
     wget https://raw.githubusercontent.com/ValveSoftware/Proton/proton_5.13/build-mingw-w64.sh && \
-    head -n221 build-mingw-w64.sh > download-mingw-w64.sh && \
+    head -n221 build-mingw-w64.sh | tail -n +29 > download-mingw-w64.sh && \
     sh download-mingw-w64.sh
 
 RUN dpkg --add-architecture i386 && \
