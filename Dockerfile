@@ -1,5 +1,6 @@
 FROM registry.gitlab.steamos.cloud/steamrt/soldier/sdk
 
+RUN sed -i '/steam/d' /etc/apt/sources.list
 
 RUN dpkg --add-architecture i386 && \
       apt-get update && apt-get install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common
