@@ -1,8 +1,5 @@
 FROM registry.gitlab.steamos.cloud/steamrt/soldier/sdk
 
-RUN cd /tmp && git clone https://github.com/ValveSoftware/Proton.git proton --depth=1 && \
-    cd proton && head -n221 build-mingw-w64.sh | tail -n +32 > download-mingw-w64.sh && \
-    sh download-mingw-w64.sh
 
 RUN dpkg --add-architecture i386 && \
       apt-get update && apt-get install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common
@@ -21,6 +18,8 @@ RUN      update-alternatives --set i686-w64-mingw32-g++ `which i686-w64-mingw32-
 RUN      pip install afdko
 
 
+RUN cd /tmp && git clone https://github.com/ValveSoftware/Proton.git proton --depth=1 && \
+    cd proton && \
+    sh build-mingw-w64.sh
 
-RUN cd /tmp/proton &&    sudo sh build-mingw-w64.sh
 
