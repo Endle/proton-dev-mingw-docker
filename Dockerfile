@@ -24,6 +24,6 @@ RUN update-alternatives --set x86_64-w64-mingw32-gcc `which x86_64-w64-mingw32-g
 
 RUN cd /tmp && git clone https://github.com/ValveSoftware/Proton.git proton --depth=1 && \
     cd proton && \
-    sh build-mingw-w64.sh "$HOME/.local/"
+    bash build-mingw-w64.sh "$HOME/.local/"
 
 
