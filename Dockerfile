@@ -11,7 +11,7 @@ RUN dpkg --add-architecture i386 && \
         gcc g++ gcc-i686-linux-gnu g++-i686-linux-gnu binutils-i686-linux-gnu \
         gcc-mingw-w64-i686 gcc-mingw-w64-x86-64 \
         g++-mingw-w64-i686 g++-mingw-w64-x86-64 
-RUN pip3 install afdko
+RUN apt-get install python3-pip -y && pip3 install afdko
 
 
 
